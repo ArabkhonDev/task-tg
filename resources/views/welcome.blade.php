@@ -1,6 +1,7 @@
 <table>
     <thead>
         <tr>
+            <th>product id</th>
             <th>category name</th>
             <th>title</th>
             <th>desc</th>
@@ -11,6 +12,7 @@
     <tbody>
         @foreach ($products as $product)
             <tr>
+                <td>{{ $product->id }}</td>
                 <td>{{ $product->category->title }}</td>
                 <td>{{ $product->title }}</td>
                 <td>{{ $product->desc }}</td>
@@ -32,6 +34,7 @@
     <tbody>
         @foreach ($categories as $category)
             <tr>
+                <td>{{ $category->id }}</td>
                 <td>{{ $category->title }}</td>
                 <td>{{ $category->desc }}</td>
                 <td><img src="{{ $category->image }}" alt="category"></td>
