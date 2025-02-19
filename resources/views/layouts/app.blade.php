@@ -28,7 +28,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main class="w-full m-auto">
+            <main class="w-[1280px] m-auto">
                 {{ $slot }}
             </main>
         </div>

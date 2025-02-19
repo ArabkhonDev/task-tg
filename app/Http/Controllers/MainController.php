@@ -11,4 +11,7 @@ class MainController extends Controller
     public function main(){
         return redirect()->route('categories.index');
     }
+    public function dashboard(){
+        return redirect()->route('categories.index');
+    }
 }

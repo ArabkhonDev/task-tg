@@ -12,7 +12,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::simplePaginate(5);
         return view('category.index')->with([
             'categories'=>$categories
         ]);

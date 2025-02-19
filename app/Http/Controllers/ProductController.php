@@ -13,7 +13,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::simplePaginate(10);
         return view('product.index')->with([
             'products'=>$products
         ]);
@@ -39,6 +39,7 @@ class ProductController extends Controller
             'desc'=>$request->desc,
             'image'=>$path ?? null
         ]);
+
         return redirect()->route('products.index');
     }
 

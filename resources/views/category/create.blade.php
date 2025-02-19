@@ -8,6 +8,7 @@
                 <!-- Form title -->
                 <h1 class="text-center text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Create Category</h1>
                 <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="my-2">
                         <label for="title"
                             class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">Title</label>
