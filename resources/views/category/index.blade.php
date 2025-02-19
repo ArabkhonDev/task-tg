@@ -58,9 +58,8 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$categories->links()}}
 
         </div>
-
     </div>
-
 </x-app-layout>

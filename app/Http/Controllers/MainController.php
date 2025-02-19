@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function main(){
-        $products = Product::all();
-        $categories = Category::all();
-        return view('welcome')->with([
-            'products'=>$products,
-            'categories'=>$categories
-        ]);
+        return redirect()->route('categories.index');
     }
 }

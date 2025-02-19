@@ -5,6 +5,8 @@
 
 ## Search engine
 
-## Docker
-
 ## JWT Auth
+
+## Manager role
+
+## User role
