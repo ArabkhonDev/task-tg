@@ -33,7 +33,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => "Bu user email bizda ko'rinmadi",
         ])->onlyInput('email');
     }
 
@@ -53,7 +53,6 @@ class AuthController extends Controller
             'password'=>$request->password,
         ]);
 
-        // $user = User::create($use);
         auth()->login($user);
 
         return redirect('/')->with('success', 'Account successfuly registered');
