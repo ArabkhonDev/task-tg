@@ -37,7 +37,7 @@
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->title }}</td>
                 <td>{{ $category->desc }}</td>
-                <td><img src="{{ $category->image }}" alt="category"></td>
+                <td><img src="{{ asset('storage/' . $category->image) }}" alt="category"></td>
             </tr>
         @endforeach
     </tbody>

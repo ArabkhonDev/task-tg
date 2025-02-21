@@ -16,6 +16,9 @@
                         <input type="text" name="title"
                             class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                             id="title">
+                        @error('title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="my-2">
                         <label for="desc"
@@ -23,11 +26,14 @@
                         <input type="text" name="desc"
                             class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                             id="desc">
+                            @error('title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div>
                         <select name="category_id" id="category">
                             @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -37,13 +43,19 @@
                         <input type="text" name="price"
                             class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                             id="price">
+                            @error('price')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="my-2">
                         <label for="class"
                             class="text-sm sm:text-md font-bold text-gray-700 dark:text-gray-300">Image</label>
-                        <input type="file" name="class"
+                        <input type="file" name="image"
                             class="block w-full border border-emerald-500 outline-emerald-800 px-2 py-2 text-sm sm:text-md rounded-md my-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                             id="image">
+                            @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button

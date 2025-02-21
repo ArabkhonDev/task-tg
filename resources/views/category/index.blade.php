@@ -1,4 +1,13 @@
 <x-app-layout>
+    @if (Auth::user()->role == 'admin')
+        <a href="{{ route('categories.create') }}" class="btn btn-primary">
+            <button
+                class="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                data-ripple-light="true">
+                Add
+            </button>
+        </a>
+    @endif
     <div class="flex w-full items-center justify-center bg-white">
         <div class="p-2 px-0">
             <table class="w-full  table-auto text-left">
@@ -27,8 +36,7 @@
 
                             <td class="p-4 border-b border-blue-gray-50">
                                 <div class="flex items-center gap-3">
-                                    <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg"
-                                        alt="Spotify"
+                                    <img src="{{ asset('storage/' . $category->image) }}" alt="Spotify"
                                         class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
                                     <p
                                         class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">
@@ -58,7 +66,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{$categories->links()}}
+            {{ $categories->links() }}
 
         </div>
     </div>

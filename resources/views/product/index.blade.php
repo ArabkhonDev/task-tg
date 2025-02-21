@@ -1,4 +1,5 @@
 <x-app-layout>
+    @if (Auth::user()->role == 'admin')
     <a href="{{ route('products.create') }}" class="btn btn-primary">
         <button
             class="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -6,10 +7,11 @@
             Add
         </button>
     </a>
+    @endif
     <div class=" w-7xl collections flex flex-wrap justify-center">
         @foreach ($products as $product)
             <div class="w-100 m-2 p-2 border hover:shadow-2xs hover:bg-sky-700">
-                <img class="md:w-1/2  object-cover rounded-lg rounded-r-none pb-5/6" src="{{ $product->image }}"
+                <img class="md:w-1/2  object-cover rounded-lg rounded-r-none pb-5/6" src="{{asset('storage/'.$product->image)}}"
                     alt="bag" width="50px" height="50px">
                 <div class="w-full px-4 py-4 bg-white rounded-lg">
                     <div class="flex items-center">

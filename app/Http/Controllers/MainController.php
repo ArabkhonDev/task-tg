@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function main(){
-        return redirect()->route('categories.index');
+        return view('welcome', [
+            'products' => Product::all(),
+            'categories' => Category::all()
+        ]);
     }
     public function dashboard(){
-        return redirect()->route('categories.index');
+        return view('dashboard');
     }
 }

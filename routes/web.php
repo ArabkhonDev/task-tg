@@ -5,12 +5,25 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/', [MainController::class, 'main'])->name('main');
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
+    Route::get('/', [MainController::class, 'main'])->name('main');
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resources([
+        'categories' => CategoryController::class,
+        'products' => ProductController::class,
+    ]);
+});
+
+Route::middleware(['auth', 'role:client'])->group(function () {
+   Route::resource('products', ProductController::class)->only(['index', 'show']);
+   Route::resource('categories', CategoryController::class)->only(['index', 'show']);
 });
 
 
@@ -25,10 +38,4 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('register', [AuthController::class, 'register_store'])->name('register.store');
-
-Route::resources([
-    'categories'=>CategoryController::class,
-    'products'=>ProductController::class,
-]);
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
