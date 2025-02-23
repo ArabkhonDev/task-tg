@@ -47,8 +47,35 @@ Client userlar Category va Product listlarni ko'ra oladi va xar biri
 ichiga kirib ko'rishi xam mumkin, lekin yaratish va o'zgartirish 
 uchun xuquqi mavjud emas 
 ```
+### JWT-Auth
+```
+http:localhost:8000/api/auth/register
+```
+<img src="./public/auth/register.png" alt="jwt-auth-register" />
 
-### JWT Auth, Docker Compose, Elasticsearch
+```
+http:localhost:8000/api/auth/login
+```
+<img src="./public/auth/login.png" alt="jwt-auth-register" />
+
+```
+http:localhost:8000/api/auth/logout
+```
+<img src="./public/auth/logout.png" alt="jwt-auth-register" />
+
+```
+http:localhost:8000/api/auth/me
+```
+<img src="./public/auth/me.png" alt="jwt-auth-register" />
+
+```
+http:localhost:8000/api/auth/refresh
+```
+<img src="./public/auth/refresh.png" alt="jwt-auth-register" />
+
+
+
+### Docker Compose, Elasticsearch
 
 ```
 bular tugallanmadi
